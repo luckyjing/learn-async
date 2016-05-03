@@ -62,3 +62,82 @@ p1
 .then(data=>{
     console.log(data);
 });
+
+
+// 捕捉异常
+function testException() {
+    let p = new Promise((fulfill,reject)=>{
+    fs.readFile('./data/b1.json','utf-8',(err,data)=>{
+        if(err){
+            reject(err);
+        }
+        fulfill(data);
+    })
+});
+p.then(()=>{},err=>{
+    console.log('reject状态');
+    console.log(err);
+}).catch(err=>{
+    console.log('catch 到了错误');
+    console.log(err);
+})
+}
+//上述代码可以看到，错误的状态流入了事先写好的reject函数里
+// 如果没有对err进行处理，我们会发现这个err被抛弃掉了，运行下面的代码，发现没有抛出任何异常
+function testException1() {
+    let p = new Promise((fulfill,reject)=>{
+    fs.readFile('./data/b1.json','utf-8',(err,data)=>{
+        if(err){
+        }
+        fulfill(data);
+    })
+});
+p.then(()=>{},err=>{
+    console.log('reject状态');
+    console.log(err);
+})
+}
+// testException1();
+// 使用catch语法糖，我们
+function testException2() {
+    let p = new Promise((fulfill,reject)=>{
+    fs.readFile('./data/b1.json','utf-8',(err,data)=>{
+        if(err){
+            reject(err);
+        }
+        fulfill(data);
+    })
+});
+p.catch(err=>{
+    console.log('catch 到了错误');
+    console.log(err);
+})
+}
+// testException2();
+
+
+// 实现类似于Parallel 的效果，使用Promise.all
+
+function test() {
+    let p1 = new Promise((fulfill,reject)=>{
+    fs.readFile('./data/a.json','utf-8',(err,data)=>{
+        if(err){
+            reject(err);
+        }
+        fulfill(data);
+    })
+});
+let p2 = new Promise((fulfill,reject)=>{
+    fs.readFile('./data/b.json','utf-8',(err,data)=>{
+        if(err){
+            reject(err);
+        }
+        fulfill(data);
+    })
+});
+Promise.all([p1,p2])
+.then(result=>{
+    console.log(result);
+})
+}
+test();
