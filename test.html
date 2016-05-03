@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <input type="file" id='test'>
+<script>
+    var fd = new FormData();
+    document.querySelector('#test').addEventListener('change',function(){
+        console.log(document.querySelector('#test').files[0])
+    fd.append('logo',document.querySelector('#test').files[0],'a.jpg');
+    console.log(fd.get('logo'));
+    var xhr = new XMLHttpRequest;
+    xhr.open('POST', '/', true);
+    xhr.send(fd);
+    })
+</script>
+</body>
+</html>
