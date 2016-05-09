@@ -6,7 +6,7 @@ function * fibonacci(){
     }
 }
 let g = fibonacci();
-let log = console.log;
+let {log} = require('./util');
 log(g.next());
 log(g.next());
 log(g.next());

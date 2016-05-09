@@ -1,6 +1,8 @@
 let async = require('async');
-let fs = require('fs');
+let fs = require('fs'); 
+
 // 并行，任务A和B没有关联
+
 function test1() {
     async.parallel([
     function(cb) {
@@ -22,6 +24,8 @@ function test1() {
     }
 });
 }
+
+
 // 任务出错的情况，会中断未执行任务，继续完成已执行任务
 function test2() {
     async.parallel([
@@ -44,6 +48,7 @@ function test2() {
     }
 });
 }
+
 // 串行作业
 function test3() {
     async.series([
@@ -66,6 +71,9 @@ function test3() {
     }
 });
 }
+
+
+test3();
 // 如果产生异常，那么会中断所有未执行的任务，因为是串行，所以后续任务都不会执行
 function test4() {
     async.series([
@@ -88,6 +96,7 @@ function test4() {
     }
 });
 }
+
 
 // 瀑布式，一个任务的执行依赖于前一个的参数
 function test5() {
@@ -112,3 +121,4 @@ function test5() {
     }
 });
 }
+

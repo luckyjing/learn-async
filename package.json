@@ -1,0 +1,31 @@
+{
+  "name": "learn-async",
+  "version": "1.0.0",
+  "description": "learn async",
+  "main": "async.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luckyjing/learn-async.git"
+  },
+  "keywords": [
+    "javascript",
+    "async",
+    "promise",
+    "generator"
+  ],
+  "author": "luckyjing",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/luckyjing/learn-async/issues"
+  },
+  "homepage": "https://github.com/luckyjing/learn-async#readme",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "babel-cli": "^6.8.0",    
+    "babel-preset-stage-3": "^6.5.0"
+  }
+}
