@@ -1,4 +1,5 @@
 # JavaScript异步流程
+![async-flow](https://github.com/luckyjing/learn-async/raw/master/screenshots/main.jpg)
 这里包含了一些有用的例子帮助你去理解，去测试异步流程，你可以按照自己的需求去使用
 
 - `for_with_setTimeout`主要描述了`setTimeout`的执行和主线程之间的先后顺序
